@@ -19,7 +19,7 @@ class PostList extends React.Component {
                             <h2>{post.title}</h2>
                             <p>{post.body}</p>
                         </div>
-                        <UserHeader userId={post.userid} />
+                        <UserHeader userId={post.userId} />
                     </div>
                 </div>
             );
@@ -33,7 +33,6 @@ class PostList extends React.Component {
 }
 
 const mapStateToProps = state => {
-    console.log('mapstate', state)
     return { posts: state.posts };
 }
 
