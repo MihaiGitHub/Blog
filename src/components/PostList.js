@@ -1,12 +1,12 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { fetchPosts } from '../actions';
+import { fetchPostsAndUsers } from '../actions';
 import UserHeader from './UserHeader';
 
 class PostList extends React.Component {
     componentDidMount(){
         // Call action creator that comes from connect function
-        this.props.fetchPosts();
+        this.props.fetchPostsAndUsers();
     }
 
     renderList() {
@@ -27,7 +27,6 @@ class PostList extends React.Component {
     }
     
     render(){
-
         return <div className="ui relaxed divided list">{this.renderList()}</div>;
     }
 }
@@ -37,6 +36,9 @@ const mapStateToProps = state => {
 }
 
 // Pass action creators to this component
-export default connect(mapStateToProps, {
-    fetchPosts // fetchPosts: fetchPosts
-})(PostList);
+export default connect(
+    mapStateToProps, 
+    { 
+        fetchPostsAndUsers // fetchPostsAndUsers: fetchPostsAndUsers 
+    }
+)(PostList);
